@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on Sandeep Lamba</title>
+    <link>https://sandeeplamba.dev/kubernetes/</link>
+    <description>Recent content in Kubernetes on Sandeep Lamba</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 05 Jan 2020 22:21:05 +0100</lastBuildDate>
+    
+	<atom:link href="https://sandeeplamba.dev/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Helm</title>
+      <link>https://sandeeplamba.dev/kubernetes/helm/</link>
+      <pubDate>Sun, 05 Jan 2020 22:21:05 +0100</pubDate>
+      
+      <guid>https://sandeeplamba.dev/kubernetes/helm/</guid>
+      <description>Helm-3 How to create simple Chart using Helm-3</description>
+    </item>
+    
+  </channel>
+</rss>

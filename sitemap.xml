@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://sandeeplamba.dev/about/</loc>
+    <lastmod>2020-01-05T22:28:38+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/</loc>
+    <lastmod>2020-01-05T22:28:38+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/blogs/</loc>
+    <lastmod>2020-01-05T22:25:33+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/blogs/thanos/</loc>
+    <lastmod>2020-01-05T22:25:33+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/blogs/prometheus/</loc>
+    <lastmod>2020-01-05T22:25:28+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/aws/</loc>
+    <lastmod>2020-01-05T22:21:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/aws/eks/</loc>
+    <lastmod>2020-01-05T22:21:16+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/kubernetes/helm/</loc>
+    <lastmod>2020-01-05T22:21:05+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/kubernetes/</loc>
+    <lastmod>2020-01-05T22:21:05+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/blogs/kubernetes-security/</loc>
+    <lastmod>2020-01-05T22:20:05+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/posts/my-first-post/</loc>
+    <lastmod>2020-01-05T16:10:39+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/posts/</loc>
+    <lastmod>2020-01-05T16:10:39+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/tags/</loc>
+  </url>
+  
+</urlset>
