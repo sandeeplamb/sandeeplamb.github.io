@@ -8,7 +8,17 @@
   </url>
   
   <url>
+    <loc>https://sandeeplamba.dev/tags/markdown-cv/</loc>
+    <lastmod>2020-01-05T22:28:38+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://sandeeplamba.dev/</loc>
+    <lastmod>2020-01-05T22:28:38+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://sandeeplamba.dev/tags/</loc>
     <lastmod>2020-01-05T22:28:38+01:00</lastmod>
   </url>
   
@@ -64,10 +74,6 @@
   
   <url>
     <loc>https://sandeeplamba.dev/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>https://sandeeplamba.dev/tags/</loc>
   </url>
   
 </urlset>

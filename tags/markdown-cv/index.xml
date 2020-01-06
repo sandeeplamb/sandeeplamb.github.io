@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>markdown, cv on Sandeep Lamba</title>
+    <link>https://sandeeplamba.dev/tags/markdown-cv/</link>
+    <description>Recent content in markdown, cv on Sandeep Lamba</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 05 Jan 2020 22:28:38 +0100</lastBuildDate>
+    
+	<atom:link href="https://sandeeplamba.dev/tags/markdown-cv/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>https://sandeeplamba.dev/about/</link>
+      <pubDate>Sun, 05 Jan 2020 22:28:38 +0100</pubDate>
+      
+      <guid>https://sandeeplamba.dev/about/</guid>
+      <description>Sandeep Lamba - DevOps Jedi  The one who can save your day
+Self-motivated individual with 10+ years of IT experience
+Proficient in architecting and automating the infrastructure with AWS, Kubernetes and Terraform
+Experience in building scalable infrastructure, build and deployment
+Proficient in setting up the frameworks for
+ Public/On-Prem Clouds Kubernetes Clusters Public/On-Prem Clouds Logging Monitoring Alerting Backup/Restore Databases Disaster Recovery Management   Education Army Institute of Technology, Pune(India)</description>
+    </item>
+    
+  </channel>
+</rss>
