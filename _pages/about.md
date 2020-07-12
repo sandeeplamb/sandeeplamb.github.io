@@ -22,7 +22,7 @@ comments: false
 <h5></h5>
 <a target="_blank" href="https://www.buymeacoffee.com/starlord" class="btn btn-danger">Buy me a coffee</a> 
 <a target="_blank" href="https://github.com/sandeeplamb/" class="btn btn-warning">Github</a>
-<a target="_blank" href="https://github.com/sandeeplamb/" class="btn btn-info">CV</a> 
+<a target="_blank" href="https://github.com/sandeeplamb/sandeeplamb.github.io/tree/master/assets/docs/Sandeep.pdf" class="btn btn-info">CV</a> 
 </div>
 </div>
 
