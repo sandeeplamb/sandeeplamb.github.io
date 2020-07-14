@@ -12,6 +12,10 @@ comments: false
 ## Kustomize
 <hr style="height:3px;border-width:0;color:gray;background-color:gray;border-style: inset;display: block">
 
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/school-book.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
 > Kustomize is a standalone tool to customize Kubernetes objects through a kustomization file. Kustomize lets you customize raw, template-free YAML files for multiple purposes, leaving the original YAML untouched and usable as is. 
 
 `Kustomize` is a very opinionated tool. If you are interested to know more about it, you can listen/subscribe to this [Kubernetes Podcast from Google](https://kubernetespodcast.com/) by `Adam Glick` and `Craig Box`. 
@@ -34,7 +38,29 @@ Lets Kustomize a Helm Chart. I took [datadog helm chart](https://github.com/helm
 
 Here is my example repo for this blog [`Kustomization of datadog Helm Chart`](https://github.com/sandeeplamb/kustomization-datadog)
 
-![walking]({{ site.baseurl }}/assets/images/kust/2.png)
+<pre><code>[⎈ k8s ] tree -d
+.
+└── k8s
+    ├── bases
+    │   └── vendor
+    │       └── stable
+    │           └── datadog-2.3.14
+    │               ├── charts
+    │               │   └── kube-state-metrics
+    │               │       └── templates
+    │               ├── ci
+    │               ├── docs
+    │               └── templates
+    └── overlays
+        ├── dev
+        │   ├── patches
+        │   └── secrets
+        └── prod
+            ├── patches
+            └── secrets
+
+18 directories
+</code></pre>
 
 ## Kustomize - Its Patching
 <hr style="height:3px;border-width:0;color:gray;background-color:gray;border-style: inset;display: block">
@@ -50,8 +76,7 @@ There are 2 main directories that Kustomize uses i.e. `bases` and `overlays`.
 
 [bases](https://github.com/sandeeplamb/kustomization-datadog/tree/master/k8s/bases) contains the main helm chart for datadog.
 
-```python
-├── Makefile ------------------> use to template the helm chart into yaml format
+<pre><code>├── Makefile ------------------> use to template the helm chart into yaml format
 ├── datadog.values.yaml -------> is the values files use to tempaltise datadog helm chart
 ├── datadog.yaml --------------> is the actual kustomize manifest file
 ├── kustomization.yaml --------> contains the templated helm chart manifests in yaml format
@@ -59,14 +84,13 @@ There are 2 main directories that Kustomize uses i.e. `bases` and `overlays`.
 ├── transformer-images.yaml ---> transformer used by kustomize to add labels
 ├── transformer-patches.yaml --> transformer used by kustomize to patche k8s resources
 └── vendor --------------------> actual helm chart here
-```
+</code></pre>
 
 #1. <ins>`Makefile`</ins> <br> 
 Makefile have just 1 update command which will be used to create datadog manifest file again.
 If a new version of datadog helm chart released, just fetch the helm chart in `vendor/stable` directory and update `Makefile`
 
-```sh
-(⎈ |k8s) ] cat Makefile
+<pre><code>[⎈ k8s ] cat Makefile
 update:
     helm3 template \
           datadog \
@@ -74,13 +98,16 @@ update:
           --values datadog.values.yaml \
           vendor/stable/datadog-2.3.14/ \
           > datadog.yaml
-```
+</code></pre>
 
 #2. <ins>`datadog.values.yaml`</ins> <br> 
 The actual values for `datadog helm chart` are present in this file. These values can be default values from helm chart.
 
-```yaml
-datadog:
+`datadog.values.yaml` will be applied everytime with `Makefile` update command which in turn run helm template command for the datadog helm chart.
+
+All the common values that can be applied to helm chart should be put in `datadog.values.yaml`
+
+<pre><code>datadog:
   apiKey: ""
   appKey: ""
   clusterName: "eks-dev-cluster-1"
@@ -90,13 +117,13 @@ datadog:
     - "customer: xyz"
 clusterAgent:
   enabled: true
-```
+</code></pre>
 
 #3. <ins>`datadog.yaml`</ins> <br> 
-This file contain all the manifest files after templating the helm chart. Kustomize will use this file to create further resources of kubernetes.
+This file is the result of `Makefile` update command. <br> 
+Kustomize will be using it to create kubernetes resources.
 
-```yaml
----
+<pre><code>---
 # Source: datadog/templates/agent-secret.yaml
 apiVersion: v1
 kind: Secret
@@ -109,26 +136,27 @@ metadata:
 ---
 ...
 ---
-```
+</code></pre>
 
 #4. <ins>`kustomization.yaml`</ins> <br> 
-This file contains resource files names from where kustomize will create manifests. More details about kustomize docs [here](https://kubernetes-sigs.github.io/kustomize/)
+<code>kustomization.yaml</code> file has a specific syntax to create kubernetes manifests. <br> 
+Under <ins>**resources**</ins> and <ins>**transformers**</ins> sections, need to add relative files location paths.
 
-```yaml
-resources:
+<pre><code>resources:
 - ./datadog.yaml
 
 transformers:
 - ./transformer-common.yaml
 - ./transformer-patches.yaml
 - ./transformer-images.yaml
-```
+</code></pre>
+
+More details about kustomize [docs](https://kubernetes-sigs.github.io/kustomize/) <br> 
 
 #5. <ins>`transformer-common.yaml`</ins> <br> 
-The labels transformer adds labels to the metadata/labels field for all resources.
-
-```yaml
----
+The labels transformer adds labels to the metadata/labels field for all manifest files. <br> 
+LabelTransformer code will look like below.
+<pre><code>---
 apiVersion: builtin
 kind: LabelTransformer
 metadata:
@@ -139,13 +167,18 @@ labels:
 fieldSpecs:
 - path: metadata/labels
   create: true
-```
+</code></pre>
+
+As seen from above, following 2 labels will be added to all the manifests generated by kustomization.
+<pre><code>labels:
+  app.kubernetes.io/name: kube-state-metrics
+  app.kubernetes.io/instance: "datadog"
+</code></pre>
 
 #6. <ins>`transformer-images.yaml`</ins> <br> 
 The default images transformer updates the specified image key values found in paths that include containers and initcontainers sub-paths.
 
-```yaml
-apiVersion: builtin
+<pre><code>apiVersion: builtin
 kind: ImageTagTransformer
 metadata:
   name: image-quay-coreos
@@ -153,13 +186,12 @@ imageTag:
   name: quay.io/coreos/kube-state-metrics
   newName: my-registry.servers.xyz.com/mirrors/quay.io/coreos/kube-state-metrics
   newTag: v1.9.5
-```
+</code></pre>
 
 #7. <ins>`transformer-patches.yaml`</ins> <br> 
 Patch Transformer can patch the k8s manifests and can replace/remove contents. Below `PatchTransformer` will replace the image for Deployment and remove the labels imposed by helm chart.
 
-```yaml
----
+<pre><code>---
 apiVersion: builtin
 kind: PatchTransformer
 metadata:
@@ -180,23 +212,54 @@ patch: |-
     path: "/metadata/labels/helm.sh~1chart"
   - op: remove
     path: "/metadata/labels/app.kubernetes.io~1managed-by"
-```
+</code></pre>
+
+Its clear from code that our target is Deployment **datadog-kube-state-metrics** in **monitoring** namespace.
+<pre><code>target:
+  group: apps
+  version: v1
+  kind: Deployment
+  namespace: monitoring
+  name: datadog-kube-state-metrics
+</code></pre>
+
+PatchTransformer will **replace** first container's image of the pod. Please lookout of numeral 0. <br> 
+0 is first container as per spec definition <br> 
+1 is second container as per spec definition and so on
+<pre><code>- op: replace
+    path: /spec/template/spec/containers/0/image
+    value: "my-registry.servers.xyz.com/mirrors/quay.io/coreos/kube-state-metrics:v1.9.5"
+</code></pre>
+
+PatchTransformer will **remove** first container's resource limits CPU values.
+<pre><code>- op: remove
+    path: /spec/template/spec/containers/0/resources/limits/cpu
+</code></pre>
+
+PatchTransformer will **remove** below label from deployment
+<pre><code>- op: remove
+    path: "/metadata/labels/helm.sh~1chart"
+</code></pre>
+
+PatchTransformer will **remove** below label from deployment
+<pre><code>- op: remove
+    path: "/metadata/labels/app.kubernetes.io~1managed-by"
+</code></pre>
 
 #8. <ins>`vendor`</ins> <br> 
-This directory contains the actual helm chart from upstream stable repository.
+`vendor` directory will contain actual helm chart from upstream stable repository.
 
-```python
-(⎈ |k8s) ] tree -d vendor/
+<pre><code>[⎈ k8s ] tree -d vendor/
 vendor/
 └── stable
     └── datadog-2.3.14
         ├── charts
-        │   └── kube-state-metrics
-        │       └── templates
+        │   └── kube-state-metrics
+        │       └── templates
         ├── ci
         ├── docs
         └── templates
-```
+</code></pre>
 
 ### Kustomize - overlays dissection
 <hr style="height:3px;border-width:0;color:gray;background-color:gray;border-style: inset;display: block">
@@ -205,24 +268,22 @@ vendor/
 
 `secrets` can be added which later can become env variables or volumes in Pod using configmap/secret.
 
-```python
-(⎈ |k8s) ] tree -d
+<pre><code>[⎈ k8s ] tree -d
 .
 ├── dev
-│   ├── patches
-│   └── secrets
+│   ├── patches
+│   └── secrets
 └── prod
     ├── patches
     └── secrets
-```
+</code></pre>
 
 ### Kustomize - Run it
 <hr style="height:3px;border-width:0;color:gray;background-color:gray;border-style: inset;display: block">
 
 To run the `kustomize`, we change directory to `overlays` environment and apply it.
 
-```sh
-[⎈ k8s ] cd k8s/overlays/dev/
+<pre><code>[⎈ k8s ] cd k8s/overlays/dev/
 [⎈ k8s ] kustomize build .
 [⎈ k8s ] kustomize build . | kubectl apply -f -
 [⎈ k8s ] 
@@ -230,7 +291,7 @@ To run the `kustomize`, we change directory to `overlays` environment and apply 
 [⎈ k8s ] cd k8s/overlays/prod/
 [⎈ k8s ] kustomize build .
 [⎈ k8s ] kustomize build . | kubectl apply -f -
-```
+</code></pre>
 
 ### Kustomize - improvisation
 <hr style="height:3px;border-width:0;color:gray;background-color:gray;border-style: inset;display: block">
