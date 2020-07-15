@@ -20,4 +20,9 @@ Copyright (C) 2019 Sal, https://www.wowthemes.net
 3. Create a branch off of master and give it a meaningful name (e.g. my-new-mediumish-feature).
 4. Make necessary changes, commit, push and open a pull request on GitHub.
 
+### References
+- [highlightjs](https://highlightjs.org/static/demo/)
+- [highlightjs-github](https://github.com/highlightjs/highlight.js/tree/master/src/styles)
+- [markdownmonster](https://markdownmonster.west-wind.com/docs/_4sf0may9m.htm)
+
 Thank you!
