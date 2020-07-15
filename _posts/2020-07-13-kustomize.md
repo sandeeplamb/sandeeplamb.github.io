@@ -12,7 +12,7 @@ comments: false
 ## Kustomize
 <hr style="height:3px;border-width:0;color:gray;background-color:gray;border-style: inset;display: block">
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/pojoaque.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/vs2015.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
