@@ -8,6 +8,7 @@ featured: true
 hidden: true
 comments: false
 ---
+How to Kustomize a Helm Chart?
 
 ## Kustomize
 <hr style="height:3px;border-width:0;color:gray;background-color:gray;border-style: inset;display: block">
