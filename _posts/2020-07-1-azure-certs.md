@@ -2,8 +2,10 @@
 layout: post
 title:  "Azure Certifications"
 author: Sandeep
-categories: [ Azure, Tutorial, Blog, Certifications]
-image: assets/images/common/azure-certs.jpeg
+categories: [ Azure, Tutorial ]
+image: assets/images/common/azure.jpg
 comments: false
 ---
-Approach to take on Azure Certs
+Definitive guide to take on Azure Certs.
+
+![walking]({{ site.baseurl }}/assets/images/common/azure-certs.jpeg)

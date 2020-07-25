@@ -3,7 +3,7 @@ layout: post
 title:  "Let's Kustomize"
 author: Sandeep
 categories: [ Kubernetes, Tutorial, Kustomize ]
-image: assets/images/kust/1.png
+image: assets/images/common/kustomize.jpeg
 featured: true
 hidden: true
 comments: false
@@ -43,19 +43,19 @@ Here is my example repo for this blog [`Kustomization of datadog Helm Chart`](ht
 .
 └── k8s
     ├── bases
-    │   └── vendor
-    │       └── stable
-    │           └── datadog-2.3.14
-    │               ├── charts
-    │               │   └── kube-state-metrics
-    │               │       └── templates
-    │               ├── ci
-    │               ├── docs
-    │               └── templates
+    │   └── vendor
+    │       └── stable
+    │           └── datadog-2.3.14
+    │               ├── charts
+    │               │   └── kube-state-metrics
+    │               │       └── templates
+    │               ├── ci
+    │               ├── docs
+    │               └── templates
     └── overlays
         ├── dev
-        │   ├── patches
-        │   └── secrets
+        │   ├── patches
+        │   └── secrets
         └── prod
             ├── patches
             └── secrets
@@ -304,5 +304,4 @@ To run the `kustomize`, we change directory to `overlays` environment and apply 
 ![walking]({{ site.baseurl }}/assets/images/8.jpg)
 
 ## Reference lists
-
 
