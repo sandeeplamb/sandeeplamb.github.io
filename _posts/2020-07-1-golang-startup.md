@@ -3,7 +3,7 @@ layout: post
 title:  "golang 101"
 author: Sandeep
 categories: [ Golang, Tutorial ]
-image: assets/images/17.jpg
+image: assets/images/common/go.jpeg
 comments: false
 ---
 
