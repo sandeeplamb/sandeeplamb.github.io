@@ -1,7 +1,10 @@
 # Site
 name: "Sandeep Lamba"
-title: "Sandeep Lamba"
-description: "What you seek is seeking you. <br> "
+title: "Sandeep Lamba - Cloud & DevOps Blog"
+description: |
+  What you seek is seeking you.
+  Exploring life and cloud and sharing knowledge one post at a time.
+url: "https://sandeeplamb.github.io"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
 baseurl: ''
@@ -14,13 +17,13 @@ permalink: /:title/
 # Authors
 authors:
   Sandeep:
-    name: Sandeep
-    display_name: Sandeep
+    name: Sandeep Lamba
+    display_name: Sandeep Lamba
     gravatar: e56154546cf4be74e393c62d1ae9f9d4
     email: sandeeplamb@gmail.com
     web: https://twitter.com/sandeeplamb
     twitter: https://twitter.com/sandeeplamb
-    description: ""
+    description: "Cloud & DevOps Engineer | Kubernetes Enthusiast | AWS Certified | Sharing knowledge and experiences in cloud technologies"
 
 # Plugins
 plugins:
@@ -57,7 +60,19 @@ adsense: "disabled"
 adsense-data-ad-client: ""
 adsense-data-ad-slot: ""
 
-# Lazy Images ("enabled" or "disabled")
-lazyimages: "disabled"
+# Lazy Images ("enabled" or "disabled") - Improves page load performance
+lazyimages: "enabled"
 
 exclude: [CHANGELOG.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock]
+
+# SEO & Social Media
+# These settings help with search engine optimization and social sharing
+twitter:
+  username: sandeeplamb
+  card: summary_large_image
+
+# Timezone (for proper date/time display)
+timezone: UTC
+
+# Encoding
+encoding: utf-8

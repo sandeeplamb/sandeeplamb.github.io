@@ -3,7 +3,7 @@ layout: post
 title:  "Awesome Github Repos"
 author: Sandeep
 categories: [ github, awesome ]
-image: assets/images/common/arrows.jpg
+# image: assets/images/common/arrows.jpg
 comments: false
 ---
 A list of amazing github repos that I refer very often.

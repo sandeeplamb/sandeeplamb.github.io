@@ -3,7 +3,7 @@ layout: post
 title:  "Let's Kustomize"
 author: Sandeep
 categories: [ Kubernetes, Tutorial, Kustomize ]
-image: assets/images/common/kustomize.jpeg
+# image: assets/images/common/kustomize.jpeg
 featured: true
 hidden: true
 comments: false
