@@ -3,7 +3,7 @@ layout: post
 title:  "Terragrunt - Multiple Buckets remote_state"
 author: Sandeep
 categories: [ Terraform, Tutorial, Terragrunt, AWS, Cloud ]
-image: assets/images/common/terragrunt.png
+# image: assets/images/common/terragrunt.png
 featured: false
 description: "Approach to create different Remote-Buckets in same environment in Terragrunt for different product and account."
 hidden: true
