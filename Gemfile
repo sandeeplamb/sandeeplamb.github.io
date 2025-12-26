@@ -7,12 +7,17 @@ source "https://rubygems.org"
 #     bundle exec jekyll serve
 #
 
+<<<<<<< HEAD
 # Use modern Jekyll version compatible with Ruby 3.4+
 gem 'jekyll', '~> 4.3'
 # Force older jekyll-sass-converter that uses sass instead of sass-embedded
 gem 'jekyll-sass-converter', '~> 2.0'
 # Use sass instead of sass-embedded to avoid google-protobuf dependency
 gem 'sass', '~> 3.7'
+=======
+# If you have any plugins, put them here!
+gem 'github-pages', '~> 207', group: :jekyll_plugins
+>>>>>>> 773597d (Bump kramdown and github-pages)
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 # Required for Ruby 3.0+ (rexml was removed from standard library)
