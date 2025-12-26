@@ -1,0 +1,12 @@
+services:
+  jekyll:
+    image: jekyll/jekyll:3.4.0
+    platform: linux/amd64
+    command: bash -c "cd /srv/jekyll && if [ ! -f Gemfile.lock ] || ! bundle check 2>/dev/null; then gem install bundler -v '~> 2.0' && bundle install; fi && bundle exec jekyll serve --force_polling --host 0.0.0.0 --port 4000"
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/srv/jekyll
+    environment:
+      - JEKYLL_UID=1000
+      - JEKYLL_GID=1000
